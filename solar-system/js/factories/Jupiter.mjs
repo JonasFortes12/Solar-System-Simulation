@@ -11,22 +11,31 @@ class Jupiter {
         this.rotationSpeed = 0.01;
         this.OrbitSpeed = 0.44 * 0.001;
 
-        this.fobosTextureMap = '../assets/textures/planetsAndMoons/moons/Moon1_Texture.jpg'
-        this.deimosTextureMap = '../assets/textures/planetsAndMoons/moons/Moon2_Texture.jpg'
-        this.fobosNormalMap = '../assets/textures/planetsAndMoons/moons/Moon1_Normal.png'
-        this.deimosNormalMap = '../assets/textures/planetsAndMoons/moons/Moon2_Normal.png'
+        this.ganimedesTextureMap = '../assets/textures/planetsAndMoons/moons/Moon1_Texture.jpg'
+        this.ganimedesNormalMap = '../assets/textures/planetsAndMoons/moons/Moon1_Normal.png'
+        
+        this.ioTextureMap = '../assets/textures/planetsAndMoons/moons/Moon2_Texture.jpg'
+        this.ioNormalMap = '../assets/textures/planetsAndMoons/moons/Moon2_Normal.png'
+
+        this.europaTextureMap = '../assets/textures/planetsAndMoons/moons/Moon3_Texture.jpg'
+        this.europaNormalMap = '../assets/textures/planetsAndMoons/moons/Moon3_Normal.png'
+
+        this.calistoTextureMap = '../assets/textures/planetsAndMoons/moons/Moon4_Texture.jpg'
+        this.calistoNormalMap = '../assets/textures/planetsAndMoons/moons/Moon4_Normal.png'
 
 
         this.mesh = CelestialBodyFactory(this.radius, this.textureMap, this.textureNormalMap);
 
-        const marsOrbit = createOrbitLine(sunRadius + this.orbitRadius, sunRadius + this.orbitRadius, 0xADFF2F, 100, 90);
+        const jupiterOrbit = createOrbitLine(sunRadius + this.orbitRadius, sunRadius + this.orbitRadius,  0xFFA500, 100, 90);
 
-        scene.add(marsOrbit);
+        scene.add(jupiterOrbit);
         scene.add(this.mesh);
 
         this.moonsInfo = [
-            { name: 'Fobos', radius: 0.15*radiusEarth, texture:this.fobosTextureMap, normalMap:this.fobosNormalMap,orbitRadius: 9378,orbitSpeed: 0.001},
-            { name: 'Deimos', radius: 0.044*radiusEarth, texture:this.deimosTextureMap, normalMap:this.deimosNormalMap, orbitRadius: 23460,orbitSpeed: 0.003},
+            { name: 'Ganimedes', radius: 0.413*radiusEarth, texture:this.ganimedesTextureMap, normalMap:this.ganimedesNormalMap,orbitRadius: 152000,orbitSpeed: 0.0005},
+            { name: 'Io', radius: 0.286*radiusEarth, texture:this.ioTextureMap, normalMap:this.ioNormalMap,orbitRadius: 107000,orbitSpeed: 0.001},
+            { name: 'Europa', radius: 0.245*radiusEarth, texture:this.europaTextureMap, normalMap:this.europaNormalMap, orbitRadius: 122000,orbitSpeed: 0.0008},
+            { name: 'Calisto', radius: 0.378*radiusEarth, texture:this.calistoTextureMap, normalMap:this.calistoNormalMap, orbitRadius: 188270,orbitSpeed: 0.0003},
         ];
 
         this.moons = {};
