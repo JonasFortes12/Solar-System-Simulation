@@ -5,17 +5,18 @@ import { createOrbitLine, orbitObjectAround, orbitObjectAroundSun} from '../util
 class Uranus {
     constructor(scene, radiusEarth, sunRadius) {
         this.radius = 4.007 * radiusEarth;
-        this.orbitRadius = 800000;
+        this.orbitRadius = 1700000;
         this.textureMap = '../assets/textures/planetsAndMoons/uranus/Uranus_Texture.jpg';
         this.textureNormalMap = '../assets/textures/planetsAndMoons/uranus/Uranus_Normal.png';
         this.rotationSpeed = 0.01;
-        this.OrbitSpeed = 0.0009;
+        this.OrbitSpeed = 0.00002;
 
         this.mirandaTextureMap = '../assets/textures/planetsAndMoons/moons/Moon1_Texture.jpg'
         this.arielTextureMap = '../assets/textures/planetsAndMoons/moons/Moon2_Texture.jpg'
         this.umbrielTextureMap = '../assets/textures/planetsAndMoons/moons/Moon3_Texture.jpg'
         this.titaniaTextureMap = '../assets/textures/planetsAndMoons/moons/Moon4_Texture.jpg'
         this.oberonTextureMap = '../assets/textures/planetsAndMoons/moons/Moon1_Texture.jpg'
+        
         this.mirandaNormalMap = '../assets/textures/planetsAndMoons/moons/Moon1_Normal.jpg'
         this.arielNormalMap = '../assets/textures/planetsAndMoons/moons/Moon2_Normal.jpg'
         this.umbrielNormalMap = '../assets/textures/planetsAndMoons/moons/Moon3_Normal.jpg'
@@ -32,11 +33,11 @@ class Uranus {
 
         this.moonsInfo = [
             // { name: 'Moon1', radius: 1000, texture: this.textureMap, orbitRadius: 20000,orbitSpeed: 0.001},
-            { name: 'Miranda', radius: 0.82*radiusEarth, texture:this.mirandaTextureMap, normalMap:this.mirandaNormalMap,orbitRadius: 129390,orbitSpeed: 0.001},
-            { name: 'Ariel', radius: 0.97*radiusEarth, texture:this.arielTextureMap, normalMap:this.arielNormalMap, orbitRadius: 191020,orbitSpeed: 0.003},
-            { name: 'Umbriel', radius: 0.92*radiusEarth, texture:this.umbrielTextureMap, normalMap:this.umbrielNormalMap,orbitRadius: 266000,orbitSpeed: 0.001},
-            { name: 'Titania', radius: 0.23*radiusEarth, texture:this.titaniaTextureMap, normalMap:this.titaniaNormalMap, orbitRadius: 435840,orbitSpeed: 0.003},
-            { name: 'Oberon', radius: 0.19*radiusEarth, texture:this.oberonTextureMap, normalMap:this.oberonNormalMap, orbitRadius: 583520,orbitSpeed: 0.003}
+            { name: 'Miranda', radius: 0.82*radiusEarth, texture:this.mirandaTextureMap, normalMap:this.mirandaNormalMap,orbitRadius: 41390,orbitSpeed: 0.006},
+            { name: 'Ariel', radius: 0.97*radiusEarth, texture:this.arielTextureMap, normalMap:this.arielNormalMap, orbitRadius: 60020,orbitSpeed: 0.004},
+            { name: 'Umbriel', radius: 0.92*radiusEarth, texture:this.umbrielTextureMap, normalMap:this.umbrielNormalMap,orbitRadius: 81600,orbitSpeed: 0.003},
+            { name: 'Titania', radius: 0.23*radiusEarth, texture:this.titaniaTextureMap, normalMap:this.titaniaNormalMap, orbitRadius: 100584,orbitSpeed: 0.002},
+            { name: 'Oberon', radius: 0.19*radiusEarth, texture:this.oberonTextureMap, normalMap:this.oberonNormalMap, orbitRadius: 200300,orbitSpeed: 0.001}
         ];
 
         this.moons = {};
