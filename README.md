@@ -12,7 +12,7 @@ O simulação foi feita usando a biblioteca Three.js em javascript. Ele conta co
 - João Paulo Militão
 - Jonas Fortes
 - Iris Costa
-- Isaac Andrade
+- Isac Andrade
 - Joana Sthefanny
 - Vitória Freitas
 
