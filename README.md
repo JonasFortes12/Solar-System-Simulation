@@ -16,6 +16,10 @@ O simulação foi feita usando a biblioteca Three.js em javascript. Ele conta co
 - Joana Sthefanny
 - Vitória Freitas
 
+### Vídeo de Demonstração da Cena 🎬🎞️
+<iframe width="560" height="315" src="https://www.youtube.com/watch?v=-PCYjfekr8w" frameborder="0" allowfullscreen></iframe>
+
+
 ### Avaliação 🤓
 
 O sistema foi desenvolvido como primeira avaliação da disciplina de `computação gráfica` da **UFC, Campus Sobral**, durante o semestre **2023.2**
