@@ -5,7 +5,7 @@ import { createOrbitLine, orbitObjectAround, orbitObjectAroundSun} from '../util
 class Uranus {
     constructor(scene, radiusEarth, sunRadius) {
         this.radius = 4.007 * radiusEarth;
-        this.orbitRadius = 1700000;
+        this.orbitRadius = 2000000;
         this.textureMap = '../assets/textures/planetsAndMoons/uranus/Uranus_Texture.jpg';
         this.textureNormalMap = '../assets/textures/planetsAndMoons/uranus/Uranus_Normal.png';
         this.rotationSpeed = 0.01;

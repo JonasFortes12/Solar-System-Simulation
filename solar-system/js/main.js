@@ -18,6 +18,7 @@ import { Venus } from './factories/Venus.mjs';
 import { Mars } from './factories/Mars.mjs';
 import { Jupiter } from './factories/Jupiter.mjs';
 import { AsteroidBelt } from './factories/AsteroidBelt.mjs';
+import { Saturn } from './factories/Saturn.mjs';
 import { Neptune } from './factories/Neptune.mjs';
 import { Uranus } from './factories/Uranus.mjs';
 
@@ -25,7 +26,7 @@ const radius = 6371;
 const moonScale = 0.23;
 const sunRadius = 150000;
 
-let EarthOrbitSpeed, MercuryOrbitSpeed, VenusOrbitSpeed, MarsOrbitSpeed, JupiterOrbitSpeed, NeptuneOrbitSpeed, UranusOrbitSpeed;
+let EarthOrbitSpeed, MercuryOrbitSpeed, VenusOrbitSpeed, MarsOrbitSpeed, JupiterOrbitSpeed, NeptuneOrbitSpeed, UranusOrbitSpeed, SaturnOrbitSpeed;
 
 const MARGIN = 0;
 let SCREEN_HEIGHT = window.innerHeight - MARGIN * 2 - 80;
@@ -36,7 +37,7 @@ let dirLight, bulbLight, bulbMat;
 
 let composer;
 
-let earth, sun, mercury, venus, asteroidBelt, mars, jupiter, neptune, uranus;
+let earth, sun, mercury, venus, asteroidBelt, mars, jupiter, neptune, uranus, saturn;
 
 let d, dPlanet, dMoon;
 const dMoonVec = new THREE.Vector3();
@@ -54,8 +55,8 @@ function setSystemVelocity(aumento){
 	earth.orbitSpeed = aumento*EarthOrbitSpeed;
 	mars.OrbitSpeed = aumento*MarsOrbitSpeed;
 	jupiter.OrbitSpeed = aumento*JupiterOrbitSpeed;
+	saturn.OrbitSpeed = aumento*SaturnOrbitSpeed;
 	neptune.OrbitSpeed = aumento*NeptuneOrbitSpeed;
-
 	uranus.OrbitSpeed = aumento*UranusOrbitSpeed;	
 }
 
@@ -100,15 +101,14 @@ function init() {
 	jupiter = new Jupiter(scene, earth.radius, sunRadius);
 	JupiterOrbitSpeed = jupiter.OrbitSpeed;
 
-	//uranus
-	uranus = new Uranus(scene, earth.radius, sunRadius);
-	UranusOrbitSpeed = uranus.OrbitSpeed;
+	//saturn
+	saturn = new Saturn(scene, earth.radius, sunRadius);
+	SaturnOrbitSpeed = saturn.OrbitSpeed;
 
 	//uranus
 	uranus = new Uranus(scene, earth.radius, sunRadius);
 	UranusOrbitSpeed = uranus.OrbitSpeed;
 
-	
 	//neptune
 	neptune = new Neptune(scene, earth.radius, sunRadius);
 	NeptuneOrbitSpeed = neptune.OrbitSpeed;
@@ -122,7 +122,6 @@ function init() {
 
 	//renderer
 
-	
 	renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
 	renderer.setPixelRatio(window.devicePixelRatio);
 	renderer.setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
@@ -139,8 +138,8 @@ function init() {
 
 	//stats
 
-	stats = new Stats();
-	document.body.appendChild(stats.dom);
+	// stats = new Stats();
+	// document.body.appendChild(stats.dom);
 
 	//windowResize
 
@@ -171,7 +170,7 @@ function init() {
 	const bloomPass = new UnrealBloomPass(new THREE.Vector2(window.innerWidth, window.innerHeight), 1.5, 0.4, 0.85);
 	bloomPass.threshold = 0.1; // Ajuste o limite para controlar o brilho afetado pelo "bloom"
 	bloomPass.strength = 0.6; // Ajuste a intensidade do "bloom"
-	bloomPass.radius = 0.5; // Ajuste o raio do "bloom"
+	bloomPass.radius = 1.2; // Ajuste o raio do "bloom"
 
 	composer.addPass(renderPass);
 	composer.addPass(bloomPass);
@@ -200,11 +199,12 @@ function animate() {
 	earth.animate();
 	mars.animate();
 	jupiter.animate();
+	saturn.animate();
 
 	neptune.animate();
 	// asteroidBelt.animate();
 	render();
-	stats.update();
+	// stats.update();
 
 }
 
@@ -216,6 +216,9 @@ function render() {
 	orbitObjectAroundSun(venus.mesh, sun.radius + venus.orbitRadius, venus.OrbitSpeed);
 	orbitObjectAroundSun(mars.mesh, sun.radius + mars.orbitRadius, mars.OrbitSpeed);
 	orbitObjectAroundSun(jupiter.mesh, sun.radius + jupiter.orbitRadius, jupiter.OrbitSpeed);
+	orbitObjectAroundSun(saturn.mesh, sun.radius + saturn.orbitRadius, saturn.OrbitSpeed);
+	orbitObjectAroundSun(saturn.ringUp, sun.radius + saturn.orbitRadius, saturn.OrbitSpeed);
+	orbitObjectAroundSun(saturn.ringDown, sun.radius + saturn.orbitRadius, saturn.OrbitSpeed);
 
 	orbitObjectAroundSun(neptune.mesh, sun.radius + neptune.orbitRadius, neptune.OrbitSpeed);
 	orbitObjectAroundSun(uranus.mesh, sun.radius + uranus.orbitRadius, uranus.OrbitSpeed);

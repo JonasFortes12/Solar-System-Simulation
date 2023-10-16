@@ -9,7 +9,7 @@ class Venus {
         this.textureMap = '../assets/textures/planetsAndMoons/venus/venus_surface.jpg';
         this.textureNormalMap = '../assets/textures/planetsAndMoons/venus/venus_normal.png';
         this.rotationSpeed = 0.01;
-        this.OrbitSpeed = 0.0001;
+        this.OrbitSpeed = 1.17 * 0.001;
 
         this.mesh = CelestialBodyFactory(this.radius, this.textureMap, this.textureNormalMap);
 

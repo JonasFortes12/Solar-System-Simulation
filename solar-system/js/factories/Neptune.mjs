@@ -5,7 +5,7 @@ import { createOrbitLine, orbitObjectAround, orbitObjectAroundSun} from '../util
 class Neptune {
     constructor(scene, radiusEarth, sunRadius) {
         this.radius = 3.883 * radiusEarth;
-        this.orbitRadius =   2150000;
+        this.orbitRadius =   2600000;
         this.textureMap = '../assets/textures/planetsAndMoons/neptune/Neptune_Texture.jpg';
         this.textureNormalMap = '../assets/textures/planetsAndMoons/neptune/Neptune_Normal.png';
         this.rotationSpeed = 0.01;
