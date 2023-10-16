@@ -17,7 +17,8 @@ O simulação foi feita usando a biblioteca Three.js em javascript. Ele conta co
 - Vitória Freitas
 
 ### Vídeo de Demonstração da Cena 🎬🎞️
-<iframe width="560" height="315" src="https://www.youtube.com/watch?v=-PCYjfekr8w" frameborder="0" allowfullscreen></iframe>
+[![Youtube](https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/watch?v=-PCYjfekr8w)
+
 
 
 ### Avaliação 🤓
