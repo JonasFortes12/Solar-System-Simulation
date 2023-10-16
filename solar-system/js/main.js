@@ -18,12 +18,13 @@ import { Venus } from './factories/Venus.mjs';
 import { Mars } from './factories/Mars.mjs';
 import { Jupiter } from './factories/Jupiter.mjs';
 import { AsteroidBelt } from './factories/AsteroidBelt.mjs';
+import { Saturn } from './factories/Saturn.mjs';
 
 const radius = 6371;
 const moonScale = 0.23;
 const sunRadius = 150000;
 
-let EarthOrbitSpeed, MercuryOrbitSpeed, VenusOrbitSpeed, MarsOrbitSpeed, JupiterOrbitSpeed;
+let EarthOrbitSpeed, MercuryOrbitSpeed, VenusOrbitSpeed, MarsOrbitSpeed, JupiterOrbitSpeed, SaturnOrbitSpeed;
 
 const MARGIN = 0;
 let SCREEN_HEIGHT = window.innerHeight - MARGIN * 2 - 80;
@@ -34,7 +35,7 @@ let dirLight, bulbLight, bulbMat;
 
 let composer;
 
-let earth, sun, mercury, venus, asteroidBelt, mars, jupiter;
+let earth, sun, mercury, venus, asteroidBelt, mars, jupiter, saturn;
 
 let d, dPlanet, dMoon;
 const dMoonVec = new THREE.Vector3();
@@ -93,13 +94,16 @@ function init() {
 	jupiter = new Jupiter(scene, earth.radius, sunRadius);
 	JupiterOrbitSpeed = jupiter.OrbitSpeed;
 
-	
+	//saturn
+	saturn = new Saturn(scene, earth.radius, sunRadius);
+	SaturnOrbitSpeed = saturn.OrbitSpeed;
+
+
 	//asteroid belts
 	asteroidBelt = new AsteroidBelt(scene);	
 
 	//renderer
 
-	
 	renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
 	renderer.setPixelRatio(window.devicePixelRatio);
 	renderer.setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
@@ -176,6 +180,7 @@ function animate() {
 	earth.animate();
 	mars.animate();
 	jupiter.animate();
+	saturn.animate();
 	// asteroidBelt.animate();
 	render();
 	stats.update();
@@ -190,6 +195,9 @@ function render() {
 	orbitObjectAroundSun(venus.mesh, sun.radius + venus.orbitRadius, venus.OrbitSpeed);
 	orbitObjectAroundSun(mars.mesh, sun.radius + mars.orbitRadius, mars.OrbitSpeed);
 	orbitObjectAroundSun(jupiter.mesh, sun.radius + jupiter.orbitRadius, jupiter.OrbitSpeed);
+	orbitObjectAroundSun(saturn.mesh, sun.radius + saturn.orbitRadius, saturn.OrbitSpeed);
+	orbitObjectAroundSun(saturn.ringUp, sun.radius + saturn.orbitRadius, saturn.OrbitSpeed);
+	orbitObjectAroundSun(saturn.ringDown, sun.radius + saturn.orbitRadius, saturn.OrbitSpeed);
 
 	// slow down as we approach the surface
 	dPlanet = camera.position.length();

@@ -9,7 +9,7 @@ class Jupiter {
         this.textureMap = '../assets/textures/planetsAndMoons/jupiter/Jupiter_Texture.jpg';
         this.textureNormalMap = '../assets/textures/planetsAndMoons/jupiter/Jupiter_Normal.png';
         this.rotationSpeed = 0.01;
-        this.OrbitSpeed = 0.00001;
+        this.OrbitSpeed = 0.44 * 0.001;
 
         this.fobosTextureMap = '../assets/textures/planetsAndMoons/moons/Moon1_Texture.jpg'
         this.deimosTextureMap = '../assets/textures/planetsAndMoons/moons/Moon2_Texture.jpg'

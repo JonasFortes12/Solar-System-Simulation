@@ -9,7 +9,7 @@ class Mercury {
         this.textureMap = '../assets/textures/planetsAndMoons/mercury/mercury.jpg';
         this.textureNormalMap = '../assets/textures/planetsAndMoons/mercury/mercury_normal.png';
         this.rotationSpeed = 0.01;
-        this.OrbitSpeed = 0.0009;
+        this.OrbitSpeed = 1.61 * 0.001;
 
         this.mesh = CelestialBodyFactory(this.radius, this.textureMap, this.textureNormalMap);
 
